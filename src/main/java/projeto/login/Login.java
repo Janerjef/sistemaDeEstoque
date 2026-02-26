@@ -4,6 +4,7 @@
  */
 package projeto.login;
 
+import connection.ConnectionFactory;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -30,11 +31,9 @@ public class Login extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         
-        if ("admin".equals(usuario) && "1234".equals(senha)) {
-            response.sendRedirect("projeto.html");
-           // out.println("<h2>Login realizado</h2>");
-        } else {
-            out.println("<h2>Usuário ou senha incorreto. </h2>");
+        try (var con = ConnectionFactory.getConnection()){
+           String sql = "SELECT * FROM users WHERE username= ? AND psw= ?";
+        } catch (Exception e) {
         }
     }
 }
