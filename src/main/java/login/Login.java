@@ -4,6 +4,8 @@
  */
 package login;
 
+
+import connection.ConectionFactory;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,6 +13,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 @WebServlet("/login") // caminho
 public class Login extends HttpServlet {
 
@@ -24,11 +28,24 @@ public class Login extends HttpServlet {
         response.setContentType("text/html");// eu estou setando de que forma ele vai me responder ( em texto html ) 
         PrintWriter out = response .getWriter(); // escreve no html, fazendo o get do que será escrito 
                 
-        if("admin".equals(usuario)&& "1234".equals(senha)){
-            response.sendRedirect("dashBoard.html");// direciona para a pagina
-            //out.println("<h2>Login realizado</h2>");
-        }else{
-            out.println("<h2>Usuario ou senha incorretos</h2>");
+                
+        try (var con = ConectionFactory.getConnection()){
+            String sql = "SELECT * FROM users WHERE username= ? AND psw= ?";
+            
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, usuario);
+            stmt.setString(2,senha);
+            
+            ResultSet rs = stmt.executeQuery(); 
+            if(rs.next()){
+                response.sendRedirect("Pages/dashBoard.html");
+                        
+            }else{
+                out.println("<h2>Usuario ou senha invalidos</h2>");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            out.println("<h2>Erro ao conectar com o banco de dados</h2>");
         }
         
     }

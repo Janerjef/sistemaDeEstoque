@@ -4,6 +4,10 @@
  */
 package connection;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.DriverManager;
 /**
  *
  * @author 232.005495
@@ -12,7 +16,7 @@ public class ConectionFactory {
     
         private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
         private static final String URL =
-            "jdbc:mysql://localhost:3306/estoque_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+            "jdbc:mysql://localhost:3306/estoque?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
         private static final String USER = "root";
         private static final String PASSWORD = "cimatec";
     //Métodos
@@ -20,9 +24,9 @@ public class ConectionFactory {
         public static Connection getConnection(){
             Connection con = null;
             
-            try {
-                class.forName(DRIVER);
-                con = DriverManeger.getconnection(URL, USER, PASSWORD);
+            try{
+                Class.forName(DRIVER);
+                con = DriverManager.getConnection(URL, USER, PASSWORD);
                 System.out.println("Banco de dados conectado.");
             } catch (Exception e) {
                 System.out.println("Banco de dados não conectado");
@@ -33,4 +37,5 @@ public class ConectionFactory {
              
         }
 }
-}
+
+
