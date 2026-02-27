@@ -5,6 +5,7 @@
 package projeto.login;
 
 import connection.ConnectionFactory;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,6 +13,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -33,7 +36,23 @@ public class Login extends HttpServlet {
         
         try (var con = ConnectionFactory.getConnection()){
            String sql = "SELECT * FROM users WHERE username= ? AND psw= ?";
+           
+            PreparedStatement stmt = con.prepareStatement(sql);
+            
+            stmt.setString(1, usuario);
+            stmt.setString(2, senha);
+           
+            ResultSet rs = stmt.executeQuery();
+            
+            if(rs.next()) {
+                response.sendRedirect("pages/projeto.html");
+            } else {
+                out.println("<h2>Usuário ou senha invalidos</h2>");
+            }
+                   
         } catch (Exception e) {
-        }
+            e.printStackTrace();
+            out.println("<h2>Erro ao conectar ao banco de dados.</h2>");
+        } 
     }
 }
