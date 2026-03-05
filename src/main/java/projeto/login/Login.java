@@ -20,7 +20,7 @@ import java.sql.ResultSet;
  *
  * @author 232.004390
  */
-@WebServlet("/login")
+@WebServlet("/api/login")
 public class Login extends HttpServlet {
     
     private static final long serialVersionUID = 1L;

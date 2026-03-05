@@ -1,21 +1,21 @@
 body {
-    height: 90vh;
-    background: liner-gradient(150deg, var(--primary-dark), var(--primary-medium));
+    height: 100vh;
+    background: linear-gradient(150deg, var(--primary-dark), var(--primary-medium));
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/*Container principal*/
+/*contaier principal*/
 .container {
     background-color: var(--white);
-    padding: 40x;
+    padding: 40px;
     width: 350px;
     box-shadow: 0px 8px 25px var(--shadow-default);
     border-radius: 10px;
 }
 
-/*Título*/
+/* Titulo */
 .container h1 {
     text-align: center;
     margin-bottom: 20px;
@@ -31,16 +31,17 @@ label {
 
 input {
     width: 100%;
-    padding: 10px;
+    padding: 5px;
     margin-bottom: 20px;
     border-radius: 5px;
     border: 1px solid var(--gray-medium);
-    transition: 0.3s;
+    transition: 0.3s; 
+    
 }
 
 input:focus {
     border-color: var(--primary-medium);
-    outline: none;
+    outline: none; 
     box-shadow: 0 0 5px var(--primary-medium);
 }
 
@@ -51,10 +52,7 @@ button {
     border: none;
     border-radius: 5px;
     color: var(--white);
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+    
 }
 
 button:hover {

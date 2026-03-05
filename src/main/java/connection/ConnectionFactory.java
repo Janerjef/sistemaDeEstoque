@@ -13,7 +13,7 @@ import java.sql.DriverManager;
  * @author 232.004390
  */
 public class ConnectionFactory {
-    // Pra criar a conexão, preciso de 1. Dados da conexão
+    // Pra criar a conexão, preciso de Dados da conexão
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL =
             "jdbc:mysql://localhost:3306/kids_store?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
