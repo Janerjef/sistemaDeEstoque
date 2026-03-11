@@ -19,4 +19,31 @@ public class ProdutoModel {
     private long quantidade;
     private String valor;
     private String total;
+    
+    public ProdutoModel () {
+    }
+    
+    public String getCodigoBarras () {
+        return this.codigoBarras;
+    }
+    
+    public void setCodigoBarras (String codigoBarras) {
+        this.codigoBarras = codigoBarras;
+    }
+    
+    public String getNomeProduto () {
+        return this.nomeProduto;
+    }
+    
+    public void setNomeProduto (String nomeProduto) {
+        this.nomeProduto = nomeProduto;
+    }
+    
+    public String getFabricante () {
+        return this.fabricante;
+    }
+    
+    public void setFabricante (String fabricante) {
+        this.fabricante = fabricante;
+    }
 }

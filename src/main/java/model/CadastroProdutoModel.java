@@ -23,7 +23,7 @@ public class CadastroProdutoModel {
     }
 
     public String getCodigoBarras() {
-        return codigoBarras;
+        return this.codigoBarras;
     }
 
     public void setCodigoBarras(String codigoBarras) {
@@ -31,7 +31,7 @@ public class CadastroProdutoModel {
     }
 
     public String getNomeProduto() {
-        return nomeProduto;
+        return this.nomeProduto;
     }
 
     public void setNomeProduto(String nomeProduto) {
@@ -39,7 +39,7 @@ public class CadastroProdutoModel {
     }
 
     public String getFabricante() {
-        return fabricante;
+        return this.fabricante;
     }
 
     public void setFabricante(String fabricante) {
@@ -47,7 +47,7 @@ public class CadastroProdutoModel {
     }
 
     public String getMarca() {
-        return marca;
+        return this.marca;
     }
 
     public void setMarca(String marca) {
@@ -55,7 +55,7 @@ public class CadastroProdutoModel {
     }
 
     public String getDataFabricacao() {
-        return dataFabricacao;
+        return this.dataFabricacao;
     }
 
     public void setDataFabricacao(String dataFabricacao) {
@@ -71,7 +71,7 @@ public class CadastroProdutoModel {
     }
 
     public String getValor() {
-        return valor;
+        return this.valor;
     }
 
     public void setValor(String valor) {
@@ -79,11 +79,10 @@ public class CadastroProdutoModel {
     }
 
     public String getTotal() {
-        return total;
+        return this.total;
     }
 
     public void setTotal(String total) {
         this.total = total;
     }
-    
 }
